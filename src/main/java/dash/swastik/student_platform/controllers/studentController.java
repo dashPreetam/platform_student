@@ -34,8 +34,6 @@ public class studentController {
 
         String s = "SELECT * FROM student s ";
 
-        System.out.println(yearA+" "+yearB);
-
 
         if(cls != -1) {
             s += "WHERE s.Class = :class ";
@@ -76,10 +74,10 @@ public class studentController {
 
         number--;
 
-        if(sizeList<=(size))
+        if(sizeList<=size+(number*size))
             return nativeQuery.getResultList().subList(number,sizeList);
         else
-            return nativeQuery.getResultList().subList(number,size+number);
+            return nativeQuery.getResultList().subList(number*size,size+(number*size));
     }
 
 
